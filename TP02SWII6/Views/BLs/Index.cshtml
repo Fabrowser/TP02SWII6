@@ -1,0 +1,49 @@
+﻿@model IEnumerable<TP02_SWII6.Models.BL>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista - Bill of Lading</h1>
+<hr />
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Consignee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Navio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Consignee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Navio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BLId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.BLId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.BLId">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

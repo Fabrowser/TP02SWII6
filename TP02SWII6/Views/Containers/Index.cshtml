@@ -1,0 +1,56 @@
+﻿@model IEnumerable<TP02_SWII6.Models.Container>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista - Containers</h1>
+<hr />
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tamanho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BL)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tamanho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BL.Numero)
+            </td>
+                <td>
+                   @Html.DisplayFor(modelItem => item.BL.Navio)
+                </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ContainerId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ContainerId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.ContainerId">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
